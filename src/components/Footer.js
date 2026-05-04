@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
-function Footer() {
+const Footer = () => {
     return (
         <footer className="footer-section">
             <div className="footer-column">
@@ -13,19 +13,19 @@ function Footer() {
             <div className="footer-column">
                 <ul className="social-media-links">
                     <li>
-                        <a href="#">
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
                             Facebook
                             <FontAwesomeIcon icon={faFacebookF} className="icon" />
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
                             Twitter
                             <FontAwesomeIcon icon={faTwitter} className="icon" />
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
                             Instagram
                             <FontAwesomeIcon icon={faInstagram} className="icon" />
                         </a>
