@@ -14,6 +14,12 @@ const Nav = () => {
     navigate('/', { state: { scrollToAbout: true } });
   };
 
+  const handleMenuClick = (e) => {
+    e.preventDefault();
+    setIsNavExpanded(false);
+    navigate('/', { state: { scrollToMenu: true } });
+  };
+
   return (
     <nav className="nav-bar">
       <div className="nav-logo">
@@ -31,7 +37,7 @@ const Nav = () => {
       <ul className={`nav-menu${isNavExpanded ? ' expanded' : ''}`}>
         <li><Link to="/" onClick={() => setIsNavExpanded(false)}>Home</Link></li>
         <li><a href="#about" onClick={handleAboutClick}>About</a></li>
-        <li><Link to="/" onClick={() => setIsNavExpanded(false)}>Menu</Link></li>
+        <li><a href="#specials" onClick={handleMenuClick}>Menu</a></li>
         <li><Link to="/reservations" onClick={() => setIsNavExpanded(false)}>Reservations</Link></li>
         <li><Link to="/" onClick={() => setIsNavExpanded(false)}>Order Online</Link></li>
         <li><Link to="/" onClick={() => setIsNavExpanded(false)}>Login</Link></li>

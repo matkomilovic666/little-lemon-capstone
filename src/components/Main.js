@@ -17,6 +17,12 @@ const Main = () => {
         aboutSection.scrollIntoView({ behavior: 'smooth' });
       }
     }
+    if (location.state && location.state.scrollToMenu) {
+      const menuSection = document.getElementById('specials');
+      if (menuSection) {
+        menuSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   }, [location]);
 
   return (

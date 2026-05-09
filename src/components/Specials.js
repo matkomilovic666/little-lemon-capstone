@@ -8,7 +8,7 @@ const dish3 = 'https://www.giallozafferano.es/images/275-27505/lemon-pie_1200x80
 
 function Specials() {
     return (
-        <section>
+        <section id="specials">
             <div className="highlights-section">
                 <div className="highlights-content">
                     <h2>Weekly Specials</h2>

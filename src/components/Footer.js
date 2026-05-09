@@ -1,39 +1,75 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
+
+import {
+  faFacebookF,
+  faInstagram,
+  faXTwitter
+} from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
-    return (
-        <footer className="footer-section">
-            <div className="footer-column">
-                <h3>Contact Us</h3>
-                <p>Phone: +24500-03</p>
-                <p>Email: contactus@littlelemon.com</p>
-                <p>Address: 12345 North Star, Santiago, Chile</p>
-            </div>
-            <div className="footer-column">
-                <ul className="social-media-links">
-                    <li>
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                            Facebook
-                            <FontAwesomeIcon icon={faFacebookF} className="icon" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                            Twitter
-                            <FontAwesomeIcon icon={faTwitter} className="icon" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                            Instagram
-                            <FontAwesomeIcon icon={faInstagram} className="icon" />
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </footer>
-    );
-}
+  return (
+    <footer className="footer-section">
+
+      <div className="footer-content">
+
+        <div className="footer-brand">
+          <h2>Little Lemon</h2>
+
+          <p>
+            Mediterranean flavors, warm hospitality,
+            and unforgettable dining experiences in
+            the heart of Chicago.
+          </p>
+        </div>
+
+        <div className="footer-contact">
+          <h3>Contact</h3>
+
+          <p>+24500-03</p>
+          <p>contactus@littlelemon.com</p>
+          <p>Santiago, Chile</p>
+        </div>
+
+        <div className="footer-social">
+          <h3>Follow Us</h3>
+
+          <div className="social-icons">
+
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={faFacebookF} />
+            </a>
+
+            <a
+              href="https://x.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={faXTwitter} />
+            </a>
+
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={faInstagram} />
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div className="footer-bottom">
+        © 2026 Little Lemon — All rights reserved
+      </div>
+
+    </footer>
+  );
+};
 
 export default Footer;
