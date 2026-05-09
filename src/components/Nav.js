@@ -1,20 +1,19 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png';
-import MenuIcon from '@mui/icons-material/Menu';
-
-const navLinks = [
-  {anchor: '/', name: 'Home'},
-  {anchor: '', name: 'About'},
-  {anchor: '', name: 'Menu'},
-  {anchor: '', name: 'Reservations'},
-  {anchor: '', name: 'Order Online'},
-  {anchor: '', name: 'Login'},
-];
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 const Nav = () => {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
+  const navigate = useNavigate();
+
+  const handleAboutClick = (e) => {
+    e.preventDefault();
+    setIsNavExpanded(false);
+    navigate('/', { state: { scrollToAbout: true } });
+  };
+
   return (
     <nav className="nav-bar">
       <div className="nav-logo">
@@ -27,16 +26,15 @@ const Nav = () => {
         aria-expanded={isNavExpanded}
         aria-label="Toggle navigation menu"
       >
-        <MenuIcon style={{ fontSize: 32, color: '#222' }} />
+        <FontAwesomeIcon icon={faBars} size="2x" />
       </button>
       <ul className={`nav-menu${isNavExpanded ? ' expanded' : ''}`}>
-        {navLinks.map((navLink, index) => (
-          <li key={index}>
-            <Link to={navLink.anchor} onClick={() => setIsNavExpanded(false)}>
-              {navLink.name}
-            </Link>
-          </li>
-        ))}
+        <li><Link to="/" onClick={() => setIsNavExpanded(false)}>Home</Link></li>
+        <li><a href="#about" onClick={handleAboutClick}>About</a></li>
+        <li><Link to="/" onClick={() => setIsNavExpanded(false)}>Menu</Link></li>
+        <li><Link to="/reservations" onClick={() => setIsNavExpanded(false)}>Reservations</Link></li>
+        <li><Link to="/" onClick={() => setIsNavExpanded(false)}>Order Online</Link></li>
+        <li><Link to="/" onClick={() => setIsNavExpanded(false)}>Login</Link></li>
       </ul>
     </nav>
   );

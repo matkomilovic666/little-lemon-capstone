@@ -1,5 +1,5 @@
 import React from 'react';
-import chefs from './Images/chefs.jpg';
+const chefs = 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=600&q=80'; // Unsplash
 const restaurantImg = 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80'; // Unsplash
 
 function Chicago() {

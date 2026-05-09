@@ -9,7 +9,7 @@ const user4 = 'https://randomuser.me/api/portraits/women/68.jpg'; // Chicago loc
 
 function CustomersSay() {
     return (
-        <section className="testimonials-section" style={{ backgroundColor: '#D9D9D9' }}>
+        <section className="testimonials-section">
             <h2 className="testimonials-title">Testimonials</h2>
             <div className="testimonial-grid">
                 <div className="testimonial">

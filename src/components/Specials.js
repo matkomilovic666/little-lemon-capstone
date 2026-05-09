@@ -2,9 +2,9 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBiking } from '@fortawesome/free-solid-svg-icons';
 
-const dish1 = 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80'; // Pasta
-const dish2 = 'https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80'; // Pizza
-const dish3 = 'https://images.unsplash.com/photo-1464306076886-debca5e8a6b0?auto=format&fit=crop&w=400&q=80'; // Pie
+const dish1 = 'https://rana-cdn.thron.com/delivery/public/image/rana/c8561593-a8dd-4404-96ea-451d7af2f4c3/gg3i3t/std/0x0/ES-ricetta0-T_3T1A4388.jpg?auto=format&fit=crop&w=400&q=80'; // Pasta
+const dish2 = 'https://content-historia.nationalgeographic.com.es/medio/2025/08/26/istock_42015edc_1414575281_250826105347_1200x630.webp?auto=format&fit=crop&w=400&q=80'; // Pizza
+const dish3 = 'https://www.giallozafferano.es/images/275-27505/lemon-pie_1200x800.jpg'; // Pie
 
 function Specials() {
     return (
