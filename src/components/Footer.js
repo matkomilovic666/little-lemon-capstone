@@ -27,7 +27,7 @@ const Footer = () => {
 
           <p>+24500-03</p>
           <p>contactus@littlelemon.com</p>
-          <p>Santiago, Chile</p>
+          <p>Chicago, IL</p>
         </div>
 
         <div className="footer-social">
