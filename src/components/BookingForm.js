@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlassCheers } from '@fortawesome/free-solid-svg-icons';
 
 const BookingForm = ({
   availableTimes,
-  setAvailableTimes
+  dispatch
 }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -16,21 +16,6 @@ const BookingForm = ({
   const [errors, setErrors] = useState({});
   const [emailError, setEmailError] = useState('');
   const [submissionSuccess, setSubmissionSuccess] = useState(false);
-
-  useEffect(() => {
-
-    if (selectedDate) {
-      setAvailableTimes([
-        '17:00',
-        '18:00',
-        '19:00',
-        '20:00',
-        '21:00',
-        '22:00'
-      ]);
-    }
-
-  }, [selectedDate]);
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -82,11 +67,7 @@ const BookingForm = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      setAvailableTimes((prevTimes) =>
-        prevTimes.filter(
-          (time) => time !== selectedTime
-        )
-      );
+      dispatch({ type: 'RESERVE_TIME', time: selectedTime });
       setSubmissionSuccess(true);
       resetForm();
     }
@@ -191,7 +172,14 @@ const BookingForm = ({
               type="date"
               id="date"
               value={selectedDate}
-              onChange={(e) => setSelectedDate(e.target.value)}
+              onChange={(e) => {
+                setSelectedDate(e.target.value);
+                dispatch({
+                  type: 'UPDATE_TIMES',
+                  date: e.target.value
+                });
+
+              }}
             />
             {errors.date && (
               <span className="error">
