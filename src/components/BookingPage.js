@@ -3,9 +3,9 @@ import BookingForm from './BookingForm';
 
 function BookingPage() {
   return (
-    <div>
+    <main className="reservation-page">
       <BookingForm />
-    </div>
+    </main>
   );
 }
 
