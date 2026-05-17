@@ -23,10 +23,17 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
     if (!firstName.trim()) {
       newErrors.firstName = 'First Name is required';
       valid = false;
+    } else if (firstName.trim().length < 2) {
+      newErrors.firstName = 'First name must contain at least 2 characters';
+      valid = false;
     }
 
     if (!lastName.trim()) {
       newErrors.lastName = 'Last Name is required';
+      valid = false;
+    } else if (lastName.trim().length < 2) {
+      newErrors.lastName =
+        'Last name must contain at least 2 characters';
       valid = false;
     }
 
@@ -50,6 +57,11 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
 
     if (!selectedTime) {
       newErrors.time = 'Please select a time';
+      valid = false;
+    }
+
+    if (numGuests < 1 || numGuests > 10) {
+      newErrors.numGuests = 'Guests must be between 1 and 10';
       valid = false;
     }
 
@@ -99,6 +111,18 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
     resetForm();
   };
 
+  const today = new Date().toISOString().split('T')[0];
+
+  const isFormValid =
+  firstName.trim().length >= 2 &&
+  lastName.trim().length >= 2 &&
+  emailRegex.test(email) &&
+  occasion.trim() !== '' &&
+  selectedDate !== '' &&
+  selectedTime !== '' &&
+  numGuests >= 1 &&
+  numGuests <= 10;
+
   return (
     <div className="reservation-form-wrapper">
       <h2>Reserve a Table</h2>
@@ -107,7 +131,7 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
       </p>
 
       <div className="reservation-form-container">
-        <form onSubmit={handleSubmit} noValidate>
+        <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="firstName">First Name*</label>
             <input
@@ -115,6 +139,9 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
               id="firstName"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
+              required
+              minLength={2}
+              maxLength={50}
             />
             {errors.firstName && <span className="error">{errors.firstName}</span>}
           </div>
@@ -126,6 +153,9 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
               id="lastName"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
+              required
+              minLength={2}
+              maxLength={50}
             />
             {errors.lastName && <span className="error">{errors.lastName}</span>}
           </div>
@@ -137,6 +167,8 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
               id="email"
               value={email}
               onChange={handleEmailChange}
+              maxLength={100}
+              required
             />
             {emailError && <span className="error">{emailError}</span>}
             {errors.email && <span className="error">{errors.email}</span>}
@@ -148,6 +180,8 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
               type="date"
               id="date"
               value={selectedDate}
+              min={today}
+              required
               onChange={(e) => {
                 setSelectedDate(e.target.value);
                 dispatch({
@@ -165,6 +199,7 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
               id="select-time"
               value={selectedTime}
               onChange={(e) => setSelectedTime(e.target.value)}
+              required
             >
               <option value="">Select Time</option>
               {availableTimes.map((time) => (
@@ -186,8 +221,10 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
               max="10"
               value={numGuests}
               onChange={(e) => setNumGuests(parseInt(e.target.value, 10))}
+              required
             />
             <span className="range-value">{numGuests} Guests</span>
+            {errors.numGuests && <span className="error">{errors.numGuests}</span>}
           </div>
 
           <div className="form-group full-width">
@@ -198,6 +235,7 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
                 id="occasion"
                 value={occasion}
                 onChange={(e) => setOccasion(e.target.value)}
+                required
               >
                 <option value="">Select Occasion</option>
                 <option value="casual">Casual Dinner</option>
@@ -210,7 +248,13 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
             {errors.occasion && <span className="error">{errors.occasion}</span>}
           </div>
 
-          <button className="formButton" type="submit">
+          <button
+            className={`formButton ${
+              !isFormValid ? 'disabled' : ''
+            }`}
+            type="submit"
+            disabled={!isFormValid}
+          >
             Reserve Table
           </button>
         </form>

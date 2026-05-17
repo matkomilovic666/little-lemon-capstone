@@ -962,3 +962,8 @@ body, #root {
 .reservation-confirmed h1 {
   margin-bottom: 1rem;
 }
+
+.formButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
