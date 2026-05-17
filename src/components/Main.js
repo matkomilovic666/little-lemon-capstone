@@ -23,21 +23,6 @@ export const updateTimes = (state, action) => {
 
 const Main = () => {
   const location = useLocation();
-  const navigate = useNavigate();
-
-  const [availableTimes, dispatch] = useReducer(
-    updateTimes,
-    [],
-    initializeTimes
-  );
-
-  const submitForm = (formData) => {
-    const success = window.submitAPI(formData);
-
-    if (success) {
-      navigate('/booking-confirmed');
-    }
-  };
 
   useEffect(() => {
     if (location.state?.scrollToAbout) {
@@ -55,12 +40,6 @@ const Main = () => {
       <Specials />
       <CustomersSay />
       <Chicago />
-
-      <BookingForm
-        availableTimes={availableTimes}
-        dispatch={dispatch}
-        submitForm={submitForm}
-      />
     </main>
   );
 };
