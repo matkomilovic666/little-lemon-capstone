@@ -944,3 +944,21 @@ body, #root {
     grid-template-columns: 1fr;
   }
 }
+
+/* Reservation Confirmation */
+
+.reservation-confirmed {
+  text-align: center;
+  padding: 4rem 2rem;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.4rem, 2vw, 1rem);
+}
+
+.reservation-confirmed svg {
+  color: green;
+  margin-bottom: 1rem;
+}
+
+.reservation-confirmed h1 {
+  margin-bottom: 1rem;
+}

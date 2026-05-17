@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlassCheers } from '@fortawesome/free-solid-svg-icons';
 
@@ -6,6 +7,8 @@ const BookingForm = ({
   availableTimes,
   dispatch
 }) => {
+  const navigate = useNavigate();
+
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -15,7 +18,6 @@ const BookingForm = ({
   const [selectedTime, setSelectedTime] = useState('');
   const [errors, setErrors] = useState({});
   const [emailError, setEmailError] = useState('');
-  const [submissionSuccess, setSubmissionSuccess] = useState(false);
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -65,13 +67,27 @@ const BookingForm = ({
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validateForm()) {
-      dispatch({ type: 'RESERVE_TIME', time: selectedTime });
-      setSubmissionSuccess(true);
-      resetForm();
-    }
-  };
+  e.preventDefault();
+
+  if (validateForm()) {
+
+    dispatch({
+      type: 'RESERVE_TIME',
+      time: selectedTime
+    });
+
+    resetForm();
+
+    navigate('/booking-confirmed', {
+      state: {
+        firstName,
+        selectedDate,
+        selectedTime,
+        numGuests
+      }
+    });
+  }
+};
 
   const resetForm = () => {
 
@@ -295,15 +311,6 @@ const BookingForm = ({
           </button>
         </form>
       </div>
-
-      {submissionSuccess && (
-        <div
-          className="success-message"
-          role="alert"
-        >
-          Your reservation was successful!
-        </div>
-      )}
     </div>
   );
 };

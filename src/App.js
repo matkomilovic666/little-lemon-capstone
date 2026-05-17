@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
 import BookingPage from './components/BookingPage';
+import ConfirmedBooking from './components/ConfirmedBooking';
 
 const initializeTimes = () => [
   '17:00',
@@ -46,6 +47,10 @@ const App = () => {
               dispatch={dispatch}
             />
           }
+        />
+        <Route
+          path="/booking-confirmed"
+          element={<ConfirmedBooking />}
         />
       </Routes>
       <Footer />
