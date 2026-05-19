@@ -1,71 +1,75 @@
-# Getting Started with Create React App
+# Little Lemon Capstone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is the Little Lemon Capstone app built for the **Meta Front-End Developer certification**.
+
+## About
+
+Little Lemon is a restaurant reservation SPA created with React and React Router. It demonstrates:
+
+- a responsive navigation menu
+- an accessible reservation form with validation
+- selectable table time slots based on the chosen date
+- reservation confirmation with summary details
+- semantic HTML and ARIA improvements for accessibility
+
+## Stack
+
+- React 19
+- React Router DOM 7
+- Font Awesome
+- Create React App
+- Custom CSS
+
+## Getting Started
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm start
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Available Scripts
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Runs the test runner in interactive watch mode.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Builds the app for production into the `build` folder.
 
 ### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This is a permanent operation that exposes the Create React App build configuration.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Project Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- `src/App.js` — app routes and shared booking state
+- `src/components/Nav.js` — site navigation and responsive menu
+- `src/components/Main.js` — home page layout with hero, specials, and testimonials
+- `src/components/BookingForm.js` — booking form with input validation and accessible labels
+- `src/components/BookingPage.js` — reservation page with form and schedule panel
+- `src/components/BookingSlotsList.js` — available time slot list
+- `src/components/ConfirmedBooking.js` — confirmation page for completed reservations
+- `src/components/Footer.js` — footer content and social links
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Accessibility
 
-## Learn More
+This project includes accessibility improvements such as:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- `label` elements with `htmlFor` for form fields
+- `aria-invalid` and `aria-describedby` for form error reporting
+- semantic structure using `<main>`, `<section>`, `<article>`, `<nav>`, and `<footer>`
+- meaningful image `alt` text
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Notes
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# little-lemon-capstone
+This app is intended as a front-end certification project and does not include a production backend.
