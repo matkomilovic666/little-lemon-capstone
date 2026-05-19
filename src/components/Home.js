@@ -1,11 +1,7 @@
 import Main from './Main';
 
 const Home = () => {
-  return (
-    <Main>
-        <h1>Welcome to Little Lemon</h1>
-    </Main>
-  );
+  return <Main />;
 };
 
 export default Home;

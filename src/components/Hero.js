@@ -9,21 +9,19 @@ function Hero() {
           <div className="hero-wrapper">
 
             <div className="hero-cont">
-              <div className="hero-title">Little Lemon</div>
-              <div className="hero-sub">Chicago</div>
+          <h1 className="hero-title">Little Lemon</h1>
+          <p className="hero-sub">Chicago</p>
 
-              <p>
-                We are a family owned Mediterranean restaurant,
-                focused on traditional recipes served with love
-                and a modern twist.
-              </p>
+          <p>
+            We are a family owned Mediterranean restaurant,
+            focused on traditional recipes served with love
+            and a modern twist.
+          </p>
 
-              <Link to="/reservations">
-                <button className="reserve-button">
-                  Reserve your table
-                </button>
-              </Link>
-            </div>
+          <Link to="/reservations" className="reserve-button">
+            Reserve your table
+          </Link>
+        </div>
 
             <div className="hero-img-cont">
               <img

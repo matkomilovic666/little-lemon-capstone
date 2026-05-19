@@ -22,44 +22,49 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="footer-contact">
+        <address className="footer-contact">
           <h3>Contact</h3>
 
           <p>+24500-03</p>
           <p>contactus@littlelemon.com</p>
           <p>Chicago, IL</p>
-        </div>
+        </address>
 
         <div className="footer-social">
           <h3>Follow Us</h3>
 
-          <div className="social-icons">
+          <nav aria-label="Social media links">
+            <div className="social-icons">
 
             <a
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Little Lemon on Facebook"
             >
-              <FontAwesomeIcon icon={faFacebookF} />
+              <FontAwesomeIcon icon={faFacebookF} aria-hidden="true" />
             </a>
 
             <a
               href="https://x.com"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Little Lemon on X"
             >
-              <FontAwesomeIcon icon={faXTwitter} />
+              <FontAwesomeIcon icon={faXTwitter} aria-hidden="true" />
             </a>
 
             <a
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Little Lemon on Instagram"
             >
-              <FontAwesomeIcon icon={faInstagram} />
+              <FontAwesomeIcon icon={faInstagram} aria-hidden="true" />
             </a>
 
-          </div>
+            </div>
+          </nav>
         </div>
 
       </div>

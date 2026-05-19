@@ -1,11 +1,10 @@
-import React, { useEffect, useReducer } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import Specials from './Specials';
 import Hero from './Hero';
 import CustomersSay from './CustomersSay';
 import Chicago from './Chicago';
-import BookingForm from './BookingForm';
 
 export const initializeTimes = () => {
   const today = new Date();

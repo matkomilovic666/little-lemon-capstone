@@ -5,12 +5,12 @@ const restaurant =
 
 function Chicago() {
   return (
-    <section id="about" className="about-us-section">
+    <section id="about" className="about-us-section" aria-labelledby="about-heading">
 
       <div className="about-us-content">
 
         <div className="about-us-text">
-          <h2>Little Lemon</h2>
+          <h2 id="about-heading">About Little Lemon</h2>
           <h3>Chicago</h3>
 
           <p>

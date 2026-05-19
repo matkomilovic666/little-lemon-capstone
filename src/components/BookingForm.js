@@ -80,6 +80,8 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
     }
   };
 
+  const emailErrorMessage = emailError || errors.email;
+
   const resetForm = () => {
     setFirstName('');
     setLastName('');
@@ -131,7 +133,7 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
       </p>
 
       <div className="reservation-form-container">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} noValidate>
           <div className="form-group">
             <label htmlFor="firstName">First Name*</label>
             <input
@@ -142,8 +144,10 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
               required
               minLength={2}
               maxLength={50}
+              aria-invalid={errors.firstName ? 'true' : 'false'}
+              aria-describedby={errors.firstName ? 'firstName-error' : undefined}
             />
-            {errors.firstName && <span className="error">{errors.firstName}</span>}
+            {errors.firstName && <span id="firstName-error" role="alert" className="error">{errors.firstName}</span>}
           </div>
 
           <div className="form-group">
@@ -156,8 +160,10 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
               required
               minLength={2}
               maxLength={50}
+              aria-invalid={errors.lastName ? 'true' : 'false'}
+              aria-describedby={errors.lastName ? 'lastName-error' : undefined}
             />
-            {errors.lastName && <span className="error">{errors.lastName}</span>}
+            {errors.lastName && <span id="lastName-error" role="alert" className="error">{errors.lastName}</span>}
           </div>
 
           <div className="form-group full-width">
@@ -169,9 +175,10 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
               onChange={handleEmailChange}
               maxLength={100}
               required
+              aria-invalid={emailErrorMessage ? 'true' : 'false'}
+              aria-describedby={emailErrorMessage ? 'email-error' : undefined}
             />
-            {emailError && <span className="error">{emailError}</span>}
-            {errors.email && <span className="error">{errors.email}</span>}
+            {emailErrorMessage && <span id="email-error" role="alert" className="error">{emailErrorMessage}</span>}
           </div>
 
           <div className="form-group">
@@ -189,8 +196,10 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
                   date: e.target.value,
                 });
               }}
+              aria-invalid={errors.date ? 'true' : 'false'}
+              aria-describedby={errors.date ? 'date-error' : undefined}
             />
-            {errors.date && <span className="error">{errors.date}</span>}
+            {errors.date && <span id="date-error" role="alert" className="error">{errors.date}</span>}
           </div>
 
           <div className="form-group">
@@ -200,6 +209,8 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
               value={selectedTime}
               onChange={(e) => setSelectedTime(e.target.value)}
               required
+              aria-invalid={errors.time ? 'true' : 'false'}
+              aria-describedby={errors.time ? 'time-error' : undefined}
             >
               <option value="">Select Time</option>
               {availableTimes.map((time) => (
@@ -208,7 +219,7 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
                 </option>
               ))}
             </select>
-            {errors.time && <span className="error">{errors.time}</span>}
+            {errors.time && <span id="time-error" role="alert" className="error">{errors.time}</span>}
           </div>
 
           <div className="form-group range-container">
@@ -222,20 +233,27 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
               value={numGuests}
               onChange={(e) => setNumGuests(parseInt(e.target.value, 10))}
               required
+              aria-valuemin="1"
+              aria-valuemax="10"
+              aria-valuenow={numGuests}
+              aria-invalid={errors.numGuests ? 'true' : 'false'}
+              aria-describedby={errors.numGuests ? 'numGuests-error' : undefined}
             />
             <span className="range-value">{numGuests} Guests</span>
-            {errors.numGuests && <span className="error">{errors.numGuests}</span>}
+            {errors.numGuests && <span id="numGuests-error" role="alert" className="error">{errors.numGuests}</span>}
           </div>
 
           <div className="form-group full-width">
             <label htmlFor="occasion">Occasion*</label>
             <div className="occasion-dropdown">
-              <FontAwesomeIcon className="occasion-icon" icon={faGlassCheers} />
+              <FontAwesomeIcon className="occasion-icon" icon={faGlassCheers} aria-hidden="true" />
               <select
                 id="occasion"
                 value={occasion}
                 onChange={(e) => setOccasion(e.target.value)}
                 required
+                aria-invalid={errors.occasion ? 'true' : 'false'}
+                aria-describedby={errors.occasion ? 'occasion-error' : undefined}
               >
                 <option value="">Select Occasion</option>
                 <option value="casual">Casual Dinner</option>
@@ -245,7 +263,7 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
               </select>
             </div>
 
-            {errors.occasion && <span className="error">{errors.occasion}</span>}
+            {errors.occasion && <span id="occasion-error" role="alert" className="error">{errors.occasion}</span>}
           </div>
 
           <button
@@ -254,6 +272,7 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
             }`}
             type="submit"
             disabled={!isFormValid}
+            aria-disabled={!isFormValid}
           >
             Reserve Table
           </button>

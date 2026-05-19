@@ -4,7 +4,7 @@ function BookingSlot({ time, available }) {
 
   return (
 
-    <div
+    <li
       className={`booking-slot ${
         available ? 'available' : 'reserved'
       }`}
@@ -16,7 +16,7 @@ function BookingSlot({ time, available }) {
         {available ? 'Available' : 'Reserved'}
       </span>
 
-    </div>
+    </li>
 
   );
 }

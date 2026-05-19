@@ -12,20 +12,21 @@ const ConfirmedBooking = () => {
     numGuests
     } = location.state || {};
 
+    const hasReservation = firstName && selectedDate && selectedTime && numGuests;
+
   return (
 
-    <section className=" reservation-confirmed">
-      <FontAwesomeIcon icon={faCircleCheck} size="4x" />
-
-      <p>
-        Thank you {firstName}!
-        </p>
-
-        <p>
-        Your table for {numGuests} guests
-        has been reserved for {selectedDate},
-         at {selectedTime}.
-        </p>
+    <section className="reservation-confirmed" aria-live="polite">
+      <h2>Reservation Confirmed</h2>
+      <FontAwesomeIcon icon={faCircleCheck} size="4x" aria-hidden="true" />
+      {hasReservation ? (
+        <>
+          <p>Thank you {firstName}!</p>
+          <p>Your table for {numGuests} guests has been reserved for {selectedDate}, at {selectedTime}.</p>
+        </>
+      ) : (
+        <p>Reservation details are unavailable. Please return to the booking page and try again.</p>
+      )}
     </section>
   );
 };

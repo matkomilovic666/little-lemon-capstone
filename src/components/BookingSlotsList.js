@@ -14,11 +14,11 @@ function BookingSlotsList({ availableTimes }) {
 
   return (
 
-    <div className="booking-slots-container">
+    <section className="booking-slots-container" aria-labelledby="available-times-heading">
 
-      <h3>Available Table Times</h3>
+      <h3 id="available-times-heading">Available Table Times</h3>
 
-      <div className="booking-slots-grid">
+      <ul className="booking-slots-grid">
 
         {allTimes.map((time) => (
 
@@ -30,9 +30,9 @@ function BookingSlotsList({ availableTimes }) {
 
         ))}
 
-      </div>
+      </ul>
 
-    </div>
+    </section>
   );
 }
 

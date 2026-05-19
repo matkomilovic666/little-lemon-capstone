@@ -21,7 +21,7 @@ const Nav = () => {
   };
 
   return (
-    <nav className="nav-bar">
+    <nav className="nav-bar" aria-label="Primary navigation">
       <div className="nav-logo">
         <img src={logo} alt="Little Lemon logo" />
       </div>
@@ -30,7 +30,7 @@ const Nav = () => {
         type="button"
         onClick={() => setIsNavExpanded(!isNavExpanded)}
         aria-expanded={isNavExpanded}
-        aria-label="Toggle navigation menu"
+        aria-label="On Click: toggle navigation menu"
       >
         <FontAwesomeIcon icon={faBars} size="2x" />
       </button>

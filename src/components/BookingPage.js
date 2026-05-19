@@ -18,7 +18,8 @@ function BookingPage({
     };
 
   return (
-    <main className="reservation-page">
+    <main className="reservation-page" aria-labelledby="reservation-heading">
+      <h1 id="reservation-heading" className="sr-only">Reservations</h1>
       <div className="booking-layout">
         <BookingForm
           availableTimes={availableTimes}
